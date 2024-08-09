@@ -11,7 +11,12 @@ public class PlayerController : MonoBehaviour
 
     public GameObject HandUseWeapon;
     public GameObject HandHoldWeapon;
+    public bool canAttack = true;
 
+    private void Awake()
+    {
+        canAttack = true;
+    }
     // Start is called before the first frame update
     void Start()
     {
@@ -26,7 +31,7 @@ public class PlayerController : MonoBehaviour
 
     void Attack()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space) && canAttack)
         {
             
             PlayerMovement playerMov = gameObject.GetComponent<PlayerMovement>();
@@ -71,7 +76,10 @@ public class PlayerController : MonoBehaviour
 
             HandHoldWeapon.SetActive(false);
             HandUseWeapon.SetActive(true);
-            HandUseWeapon.transform.position = transform.position + playerMov.facingDir;
+            canAttack = false;
+            HandUseWeapon.transform.position = transform.position + playerMov.facingDir * 0.7f;
+
+            Invoke(nameof(SetHandPos), 0.5f);
 
             Debug.Log("chem");
         }
@@ -80,5 +88,12 @@ public class PlayerController : MonoBehaviour
     private void OnDrawGizmosSelected()
     {
         Gizmos.DrawWireSphere(interactPos, size);
+    }
+
+    private void SetHandPos()
+    {
+        HandUseWeapon.SetActive(false);
+        HandHoldWeapon.SetActive(true);
+        canAttack = true;
     }
 }
