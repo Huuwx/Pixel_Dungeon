@@ -43,7 +43,6 @@ public class InputManager : MonoBehaviour
     {
         input.x = Input.GetAxisRaw("Horizontal");
         input.y = Input.GetAxisRaw("Vertical");
-        Debug.Log(input.ToString());
         return input;
     }
 }
