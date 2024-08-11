@@ -13,6 +13,8 @@ public class PlayerController : MonoBehaviour
     public GameObject HandHoldWeapon;
     public bool canAttack = true;
 
+    public Vector3 posOfHandUseWeapon;
+
     private void Awake()
     {
         canAttack = true;
@@ -76,6 +78,7 @@ public class PlayerController : MonoBehaviour
 
             HandHoldWeapon.SetActive(false);
             HandUseWeapon.SetActive(true);
+
             canAttack = false;
             HandUseWeapon.transform.position = transform.position + playerMov.facingDir * 0.7f;
 
@@ -92,7 +95,7 @@ public class PlayerController : MonoBehaviour
 
     private void SetHandPos()
     {
-        HandUseWeapon.SetActive(false);
+        HandUseWeapon.transform.position = posOfHandUseWeapon;
         HandHoldWeapon.SetActive(true);
         canAttack = true;
     }

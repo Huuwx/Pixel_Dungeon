@@ -41,14 +41,17 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: Weapons
-    uniqueID: 100606551
-    locked: 0
   - name: Hands
     uniqueID: 2204830893
     locked: 0
   - name: Player
     uniqueID: 1068475737
+    locked: 0
+  - name: Weapons
+    uniqueID: 100606551
+    locked: 0
+  - name: HandUseWeapon
+    uniqueID: 3112378609
     locked: 0
   - name: Shield
     uniqueID: 1464733807
