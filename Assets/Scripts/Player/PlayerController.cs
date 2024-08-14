@@ -14,6 +14,7 @@ public class PlayerController : MonoBehaviour
     public bool canAttack = true;
 
     public Vector3 posOfHandUseWeapon;
+    public LayerMask enemyLayer;
 
     private Animator animator;
 
@@ -38,18 +39,14 @@ public class PlayerController : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space) && canAttack)
         {
-            
+            canAttack = false;
             PlayerMovement playerMov = gameObject.GetComponent<PlayerMovement>();
-            interactPos = transform.position + playerMov.facingDir * 0.75f;
 
-            Debug.Log(playerMov.facingDir);
-
-            Collider2D[] collliders = Physics2D.OverlapCircleAll(interactPos, size, 0);
-            if(playerMov.facingDir.y < 0)
+            if (playerMov.facingDir.y < 0)
             {
                 animator.SetTrigger("SlashDown");
             }
-            else if(playerMov.facingDir.y > 0)
+            else if (playerMov.facingDir.y > 0)
             {
                 animator.SetTrigger("SlashUp");
             }
@@ -57,7 +54,20 @@ public class PlayerController : MonoBehaviour
             {
                 animator.SetTrigger("Slash");
             }
+
+            interactPos = transform.position + playerMov.facingDir * 0.75f;
+
+            playerMov.setFalseCanRun();
+
+            Collider2D[] collliders = Physics2D.OverlapCircleAll(interactPos, size, enemyLayer);
             
+            foreach(Collider2D collider in collliders)
+            {
+                if(collider.tag == "Enemy")
+                {
+                    Debug.Log("Minus enemy's HP");
+                }
+            }
 
             //if(playerMov.facingDir.x > 0 && playerMov.facingDir.y > 0)
             //{
@@ -109,10 +119,8 @@ public class PlayerController : MonoBehaviour
         Gizmos.DrawWireSphere(interactPos, size);
     }
 
-    private void SetHandPos()
+    private void SetCanAttack()
     {
-        HandUseWeapon.transform.position = posOfHandUseWeapon;
-        HandHoldWeapon.SetActive(true);
         canAttack = true;
     }
 }

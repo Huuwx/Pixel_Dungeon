@@ -11,6 +11,7 @@ public class PlayerMovement : MonoBehaviour
     public float moveSpeed = 1f;
 
     public bool isRunning = false;
+    private bool canRun = true;
 
     private Animator animator;
 
@@ -23,34 +24,37 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        input = InputManager.Instance.InputFromKeyBoard(input);
-        if(input != Vector3.zero)
+        if (canRun)
         {
-            //var targetPos = transform.position;
-            //targetPos.x += input.x;
-            //targetPos.y += input.y;
-
-            var currentPos = transform.position;
-
-            input.Normalize();
-            facingDir = input;
-            Movement(currentPos, input.x, input.y);
-            if(input.x > 0)
+            input = InputManager.Instance.InputFromKeyBoard(input);
+            if (input != Vector3.zero)
             {
-                transform.localScale = Vector3.one;
+                //var targetPos = transform.position;
+                //targetPos.x += input.x;
+                //targetPos.y += input.y;
 
+                var currentPos = transform.position;
+
+                input.Normalize();
+                facingDir = input;
+                Movement(currentPos, input.x, input.y);
+                if (input.x > 0)
+                {
+                    transform.localScale = Vector3.one;
+
+                }
+                else if (input.x < 0)
+                {
+                    transform.localScale = new Vector3(-1, 1, 1);
+                }
+                isRunning = true;
+                animator.SetBool("IsRunning", isRunning);
             }
-            else if(input.x < 0)
+            else
             {
-                transform.localScale = new Vector3(-1, 1, 1);
+                isRunning = false;
+                animator.SetBool("IsRunning", isRunning);
             }
-            isRunning = true;
-            animator.SetBool("IsRunning", isRunning);
-        }
-        else
-        {
-            isRunning = false;
-            animator.SetBool("IsRunning", isRunning);
         }
     }
 
@@ -62,5 +66,13 @@ public class PlayerMovement : MonoBehaviour
         transform.position = Pos;
     }
 
-    
+    public void setTrueCanRun()
+    {
+        canRun = true;
+    }
+
+    public void setFalseCanRun()
+    {
+        canRun = false;
+    }
 }

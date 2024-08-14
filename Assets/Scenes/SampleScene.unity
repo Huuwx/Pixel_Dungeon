@@ -194,8 +194,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -2090136403
-  m_SortingLayer: 1
+  m_SortingLayerID: -186177769
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: -360702502, guid: 2795c09b5a234f54185b56eb48d9e700, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -312,7 +312,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 100606551
-  m_SortingLayer: 4
+  m_SortingLayer: 5
   m_SortingOrder: 0
   m_Sprite: {fileID: 5311013, guid: 31d2e59942a7baa4a87dd99eb05c3210, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -541,7 +541,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1464733807
-  m_SortingLayer: 6
+  m_SortingLayer: 4
   m_SortingOrder: 0
   m_Sprite: {fileID: 1220427392, guid: 31d2e59942a7baa4a87dd99eb05c3210, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -644,7 +644,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 100606551
-  m_SortingLayer: 4
+  m_SortingLayer: 5
   m_SortingOrder: 0
   m_Sprite: {fileID: 5311013, guid: 31d2e59942a7baa4a87dd99eb05c3210, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -775,7 +775,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1182588687
-  m_SortingLayer: 5
+  m_SortingLayer: 6
   m_SortingOrder: 0
   m_Sprite: {fileID: -1976685660, guid: 2795c09b5a234f54185b56eb48d9e700, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -1033,7 +1033,7 @@ SpriteRenderer:
   m_SortingLayerID: 1068475737
   m_SortingLayer: 3
   m_SortingOrder: 0
-  m_Sprite: {fileID: 1503362619, guid: a7fd35d723a20154b84e2f5c849c56f0, type: 3}
+  m_Sprite: {fileID: -1343070510, guid: a7fd35d723a20154b84e2f5c849c56f0, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -1110,6 +1110,9 @@ MonoBehaviour:
   HandHoldWeapon: {fileID: 1727566792}
   canAttack: 0
   posOfHandUseWeapon: {x: -100, y: -100, z: 0}
+  enemyLayer:
+    serializedVersion: 2
+    m_Bits: 128
 --- !u!114 &1343491318
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1333,7 +1336,7 @@ Transform:
   m_GameObject: {fileID: 1427216400}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.8, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1380,15 +1383,15 @@ SpriteRenderer:
   m_SortingLayerID: 1074549197
   m_SortingLayer: 7
   m_SortingOrder: 0
-  m_Sprite: {fileID: 881833046, guid: 441e38e3cd5ebfc4197b11320eceaa92, type: 3}
+  m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1.8125, y: 1.28125}
+  m_Size: {x: 1.0833334, y: 0.7708333}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &1553508219
@@ -1612,7 +1615,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1182588687
-  m_SortingLayer: 5
+  m_SortingLayer: 6
   m_SortingOrder: 0
   m_Sprite: {fileID: -1976685660, guid: 2795c09b5a234f54185b56eb48d9e700, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -1636,7 +1639,7 @@ GameObject:
   - component: {fileID: 1928903676}
   m_Layer: 0
   m_Name: SkeletonBase
-  m_TagString: enemy
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1854,9 +1857,25 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3240301821483193980, guid: 493c934fba898474daf461dd760c1c6b, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 5909262870221570115, guid: 493c934fba898474daf461dd760c1c6b, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 6697442373313809813, guid: 493c934fba898474daf461dd760c1c6b, type: 3}
       propertyPath: m_Name
       value: SkeletonBase
+      objectReference: {fileID: 0}
+    - target: {fileID: 6697442373313809813, guid: 493c934fba898474daf461dd760c1c6b, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 6697442373313809813, guid: 493c934fba898474daf461dd760c1c6b, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

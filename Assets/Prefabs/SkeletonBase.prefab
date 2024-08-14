@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5040300759621828918}
   - component: {fileID: 66273343847278678}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: RightHand
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -94,7 +94,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1809440158180116757}
   - component: {fileID: 8332086229687350824}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: LeftHand
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -184,9 +184,9 @@ GameObject:
   - component: {fileID: 9063631820363970661}
   - component: {fileID: 109203935724321749}
   - component: {fileID: 1905729470721911392}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: SkeletonBase
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -247,7 +247,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1039937319
-  m_SortingLayer: 2
+  m_SortingLayer: 1
   m_SortingOrder: 0
   m_Sprite: {fileID: -6650602, guid: 4bd8d2dcf105ab04da20f2af7603bce8, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
