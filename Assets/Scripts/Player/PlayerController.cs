@@ -15,9 +15,12 @@ public class PlayerController : MonoBehaviour
 
     public Vector3 posOfHandUseWeapon;
 
+    private Animator animator;
+
     private void Awake()
     {
         canAttack = true;
+        animator = GetComponent<Animator>();
     }
     // Start is called before the first frame update
     void Start()
@@ -37,52 +40,65 @@ public class PlayerController : MonoBehaviour
         {
             
             PlayerMovement playerMov = gameObject.GetComponent<PlayerMovement>();
-            interactPos = transform.position + playerMov.facingDir;
+            interactPos = transform.position + playerMov.facingDir * 0.75f;
 
             Debug.Log(playerMov.facingDir);
 
             Collider2D[] collliders = Physics2D.OverlapCircleAll(interactPos, size, 0);
-
-            if(playerMov.facingDir.x > 0 && playerMov.facingDir.y > 0)
+            if(playerMov.facingDir.y < 0)
             {
-                HandUseWeapon.transform.rotation = Quaternion.Euler(0, 0, -45);
+                animator.SetTrigger("SlashDown");
             }
-            else if(playerMov.facingDir.x < 0 && playerMov.facingDir.y > 0)
+            else if(playerMov.facingDir.y > 0)
             {
-                HandUseWeapon.transform.rotation = Quaternion.Euler(0, 0, 45);
-            }
-            else if(playerMov.facingDir.x > 0 && playerMov.facingDir.y < 0)
-            {
-                HandUseWeapon.transform.rotation = Quaternion.Euler(0, 0, -135);
-            }
-            else if (playerMov.facingDir.x < 0 && playerMov.facingDir.y < 0)
-            {
-                HandUseWeapon.transform.rotation = Quaternion.Euler(0, 0, 135);
-            }
-            else if(playerMov.facingDir.x == 1)
-            {
-                HandUseWeapon.transform.rotation = Quaternion.Euler(0, 0, -90);
-            }
-            else if (playerMov.facingDir.x == -1)
-            {
-                HandUseWeapon.transform.rotation = Quaternion.Euler(0, 0, 90);
-            }
-            else if (playerMov.facingDir.y == -1)
-            {
-                HandUseWeapon.transform.rotation = Quaternion.Euler(0, 0, 180);
+                animator.SetTrigger("SlashUp");
             }
             else
             {
-                HandUseWeapon.transform.rotation = Quaternion.Euler(0, 0, 0);
+                animator.SetTrigger("Slash");
             }
+            
 
-            HandHoldWeapon.SetActive(false);
-            HandUseWeapon.SetActive(true);
+            //if(playerMov.facingDir.x > 0 && playerMov.facingDir.y > 0)
+            //{
+            //    HandUseWeapon.transform.rotation = Quaternion.Euler(0, 0, -45);
+            //}
+            //else if(playerMov.facingDir.x < 0 && playerMov.facingDir.y > 0)
+            //{
+            //    HandUseWeapon.transform.rotation = Quaternion.Euler(0, 0, 45);
+            //}
+            //else if(playerMov.facingDir.x > 0 && playerMov.facingDir.y < 0)
+            //{
+            //    HandUseWeapon.transform.rotation = Quaternion.Euler(0, 0, -135);
+            //}
+            //else if (playerMov.facingDir.x < 0 && playerMov.facingDir.y < 0)
+            //{
+            //    HandUseWeapon.transform.rotation = Quaternion.Euler(0, 0, 135);
+            //}
+            //else if(playerMov.facingDir.x == 1)
+            //{
+            //    HandUseWeapon.transform.rotation = Quaternion.Euler(0, 0, -90);
+            //}
+            //else if (playerMov.facingDir.x == -1)
+            //{
+            //    HandUseWeapon.transform.rotation = Quaternion.Euler(0, 0, 90);
+            //}
+            //else if (playerMov.facingDir.y == -1)
+            //{
+            //    HandUseWeapon.transform.rotation = Quaternion.Euler(0, 0, 180);
+            //}
+            //else
+            //{
+            //    HandUseWeapon.transform.rotation = Quaternion.Euler(0, 0, 0);
+            //}
 
-            canAttack = false;
-            HandUseWeapon.transform.position = transform.position + playerMov.facingDir * 0.7f;
+            //HandHoldWeapon.SetActive(false);
+            //HandUseWeapon.SetActive(true);
 
-            Invoke(nameof(SetHandPos), 0.5f);
+            //canAttack = false;
+            //HandUseWeapon.transform.position = transform.position + playerMov.facingDir * 0.7f;
+
+            //Invoke(nameof(SetHandPos), 0.5f);
 
             Debug.Log("chem");
         }

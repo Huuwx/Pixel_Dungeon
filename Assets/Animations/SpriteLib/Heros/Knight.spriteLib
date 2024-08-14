@@ -111,6 +111,12 @@ MonoBehaviour:
       m_SpriteOverride: {fileID: -2055222452, guid: cb5af1e75779fdd47942fdc555aac758, type: 3}
     m_FromMain: 0
     m_EntryOverrideCount: 6
+  - m_Name: Slash
+    m_Hash: 101673205
+    m_CategoryList: []
+    m_OverrideEntries: []
+    m_FromMain: 0
+    m_EntryOverrideCount: 0
   m_PrimaryLibraryGUID: 
-  m_ModificationHash: 638586641556047469
+  m_ModificationHash: 638592469832331037
   m_Version: 1

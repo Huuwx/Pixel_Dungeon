@@ -60,3 +60,6 @@ TagManager:
   - name: Shield
     uniqueID: 1464733807
     locked: 0
+  - name: Slash
+    uniqueID: 1074549197
+    locked: 0
