@@ -1,14 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Drawing;
+using TMPro;
 using UnityEngine;
 
 public class EnemyController : MonoBehaviour
 {
     private Rigidbody2D rigid;
     private Animator animator;
+    private bool isDead = false;
 
-
+    public float HP = 5;
     public Transform target;
     public LayerMask playerMask;
     public float chaseRadius;
@@ -29,7 +31,8 @@ public class EnemyController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        CheckPlayer();
+        if(!isDead)
+            CheckPlayer();
     }
 
     public void CheckPlayer()
@@ -77,6 +80,7 @@ public class EnemyController : MonoBehaviour
             else
             {
                 isRun = false;
+
                 animator.SetBool("isRun", isRun) ;
             }
         }
@@ -86,5 +90,19 @@ public class EnemyController : MonoBehaviour
     {
         Gizmos.DrawWireSphere(transform.position, chaseRadius);
         Gizmos.DrawWireSphere(transform.position, attackRadius);
+    }
+
+    public void TakeDamage(float damage)
+    {
+        HP -= damage;
+        if (HP > 0)
+        {
+            animator.SetTrigger("Hit");
+        }
+        else if(HP <= 0)
+        {
+            isDead = true;
+            animator.SetTrigger("Death");
+        }
     }
 }

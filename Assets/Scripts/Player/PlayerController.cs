@@ -12,6 +12,7 @@ public class PlayerController : MonoBehaviour
     public GameObject HandUseWeapon;
     public GameObject HandHoldWeapon;
     public bool canAttack = true;
+    public float damage;
 
     public Vector3 posOfHandUseWeapon;
     public LayerMask enemyLayer;
@@ -26,7 +27,7 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+       
     }
 
     // Update is called once per frame
@@ -66,6 +67,8 @@ public class PlayerController : MonoBehaviour
                 if(collider.tag == "Enemy")
                 {
                     Debug.Log("Minus enemy's HP");
+                    EnemyController enemy = collider.gameObject.GetComponent<EnemyController>();
+                    enemy.TakeDamage(damage);
                 }
             }
 

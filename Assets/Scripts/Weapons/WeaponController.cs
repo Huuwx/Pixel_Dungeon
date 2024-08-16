@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class WeaponController : MonoBehaviour
 {
-
+    [SerializeField] PlayerController playerController;
     SpriteRenderer spriteRenderer;
 
-    public Sprite[] listWeapons;
+    public List<Sprite> listWeapons;
+    public List<float> damgeOfWeapon;  
 
     public int indexWeapon = 0;
 
@@ -16,6 +17,7 @@ public class WeaponController : MonoBehaviour
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
         spriteRenderer.sprite = listWeapons[indexWeapon];
+        playerController.damage = damgeOfWeapon[indexWeapon];
     }
 
     // Update is called once per frame
@@ -23,31 +25,23 @@ public class WeaponController : MonoBehaviour
     {
         if(Input.GetKeyDown(KeyCode.J))
         {
-            if (gameObject.activeSelf == false)
-            {
-                gameObject.SetActive(true);
-                ChangeWeapon();
-                gameObject.SetActive(false);
-            }
-            else
-            {
-                ChangeWeapon();
-            }
-
+            ChangeWeapon();
         }
     }
 
     public void ChangeWeapon()
     {
-        if (indexWeapon < listWeapons.Length - 1)
+        if (indexWeapon < listWeapons.Count - 1)
         {
             indexWeapon++;
             spriteRenderer.sprite = listWeapons[indexWeapon];
+            playerController.damage = damgeOfWeapon[indexWeapon];
         }
-        else if (indexWeapon == listWeapons.Length - 1)
+        else if (indexWeapon == listWeapons.Count - 1)
         {
             indexWeapon = 0;
             spriteRenderer.sprite = listWeapons[indexWeapon];
+            playerController.damage = damgeOfWeapon[indexWeapon];
         }
     }
 }
