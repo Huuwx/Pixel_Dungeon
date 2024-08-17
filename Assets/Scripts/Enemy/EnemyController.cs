@@ -15,6 +15,8 @@ public class EnemyController : MonoBehaviour
     public LayerMask playerMask;
     public float chaseRadius;
     public float attackRadius;
+    public float DamageSize;
+    public Vector3 interactPos;
     public Vector3 homePos;
     public float moveSpeed;
     bool isRun;
@@ -48,13 +50,50 @@ public class EnemyController : MonoBehaviour
             }
             else
             {
-                transform.localScale = new Vector3(-1, 1, 1);
+                 transform.localScale = new Vector3(-1, 1, 1);
             }
+
+            if(Mathf.Abs(target.position.y - transform.position.y) < 1)
+            {
+                if (target.position.x > transform.position.x)
+                {
+                    interactPos = transform.position + new Vector3(1, 0, 0) * 0.7f;
+                }
+                else if (target.position.x < transform.position.x)
+                {
+                    interactPos = transform.position + new Vector3(-1, 0, 0) * 0.7f;
+                }
+            }
+            else
+            {
+                if (target.position.y - transform.position.y > 1)
+                {
+
+                    interactPos = transform.position + new Vector3(0, 1, 0) * 0.7f;
+
+                }
+                else
+                {
+
+                    interactPos = transform.position + new Vector3(0, -1, 0) * 0.7f;
+
+                }
+            }
+
             Collider2D attackRange = Physics2D.OverlapCircle(transform.position, attackRadius, playerMask);
             if(attackRange != null)
             {
-                isRun = false;
-                animator.SetBool("isRun", isRun);
+                //isRun = false;
+                //animator.SetBool("isRun", isRun);
+
+                Collider2D player = Physics2D.OverlapCircle(interactPos,DamageSize,playerMask);
+
+                if(player != null)
+                {
+                    Debug.Log("chet me may chua");
+                }
+
+                animator.SetTrigger("Attack");
                 return;
             }
             Vector3 temp = Vector3.MoveTowards(transform.position, target.position, moveSpeed * Time.deltaTime);
@@ -90,6 +129,7 @@ public class EnemyController : MonoBehaviour
     {
         Gizmos.DrawWireSphere(transform.position, chaseRadius);
         Gizmos.DrawWireSphere(transform.position, attackRadius);
+        Gizmos.DrawWireSphere(interactPos, DamageSize);
     }
 
     public void TakeDamage(float damage)
