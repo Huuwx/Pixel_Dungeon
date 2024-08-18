@@ -9,6 +9,7 @@ public class EnemyController : MonoBehaviour
     private Rigidbody2D rigid;
     private Animator animator;
     private bool isDead = false;
+    public bool canRun = true;
 
     public float HP = 5;
     public Transform target;
@@ -33,7 +34,7 @@ public class EnemyController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(!isDead)
+        if (!isDead)
             CheckPlayer();
     }
 
@@ -42,18 +43,16 @@ public class EnemyController : MonoBehaviour
         Collider2D collider = Physics2D.OverlapCircle(transform.position, chaseRadius, playerMask);
         if (collider != null)
         {
-            isRun = true;
-            animator.SetBool("isRun",isRun);
-            if(target.position.x > transform.position.x)
+            if (target.position.x > transform.position.x)
             {
                 transform.localScale = Vector3.one;
             }
             else
             {
-                 transform.localScale = new Vector3(-1, 1, 1);
+                transform.localScale = new Vector3(-1, 1, 1);
             }
 
-            if(Mathf.Abs(target.position.y - transform.position.y) < 1)
+            if (Mathf.Abs(target.position.y - transform.position.y) < 1)
             {
                 if (target.position.x > transform.position.x)
                 {
@@ -81,30 +80,27 @@ public class EnemyController : MonoBehaviour
             }
 
             Collider2D attackRange = Physics2D.OverlapCircle(transform.position, attackRadius, playerMask);
-            if(attackRange != null)
+            if (attackRange != null)
             {
                 //isRun = false;
                 //animator.SetBool("isRun", isRun);
 
-                Collider2D player = Physics2D.OverlapCircle(interactPos,DamageSize,playerMask);
-
-                if(player != null)
-                {
-                    Debug.Log("chet me may chua");
-                }
-
+                canRun = false;
                 animator.SetTrigger("Attack");
                 return;
             }
-            Vector3 temp = Vector3.MoveTowards(transform.position, target.position, moveSpeed * Time.deltaTime);
-            rigid.MovePosition(temp);
-        }
-        else
-        {
-            if(transform.position != homePos)
+            if (canRun)
             {
                 isRun = true;
                 animator.SetBool("isRun", isRun);
+                Vector3 temp = Vector3.MoveTowards(transform.position, target.position, moveSpeed * Time.deltaTime);
+                rigid.MovePosition(temp);
+            }
+        }
+        else
+        {
+            if (transform.position != homePos)
+            {
                 if (homePos.x > transform.position.x)
                 {
                     transform.localScale = Vector3.one;
@@ -113,14 +109,19 @@ public class EnemyController : MonoBehaviour
                 {
                     transform.localScale = new Vector3(-1, 1, 1);
                 }
-                Vector3 temp = Vector3.MoveTowards(transform.position, homePos, moveSpeed * Time.deltaTime);
-                rigid.MovePosition(temp);
+                if (canRun)
+                {
+                    isRun = true;
+                    animator.SetBool("isRun", isRun);
+                    Vector3 temp = Vector3.MoveTowards(transform.position, homePos, moveSpeed * Time.deltaTime);
+                    rigid.MovePosition(temp);
+                }
             }
             else
             {
                 isRun = false;
 
-                animator.SetBool("isRun", isRun) ;
+                animator.SetBool("isRun", isRun);
             }
         }
     }
@@ -139,10 +140,32 @@ public class EnemyController : MonoBehaviour
         {
             animator.SetTrigger("Hit");
         }
-        else if(HP <= 0)
+        else if (HP <= 0)
         {
             isDead = true;
             animator.SetTrigger("Death");
         }
+    }
+
+    public void setTrueCanRun()
+    {
+        canRun = true;
+    }
+
+    public void setFalseCanRun()
+    {
+        canRun = false;
+    }
+
+    public void AttackPlayer()
+    {
+        Collider2D player = Physics2D.OverlapCircle(interactPos, DamageSize, playerMask);
+        if (player != null)
+        {
+            Debug.Log("chet me may chua");
+            Health playerHealth = player.gameObject.GetComponent<Health>();
+            playerHealth.TakeDamage(1);
+        }
+
     }
 }

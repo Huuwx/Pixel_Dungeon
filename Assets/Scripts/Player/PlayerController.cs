@@ -126,4 +126,17 @@ public class PlayerController : MonoBehaviour
     {
         canAttack = true;
     }
+
+    public void Dead()
+    {
+        PlayerMovement playerMov = gameObject.GetComponent<PlayerMovement>();
+        playerMov.setFalseCanRun();
+        canAttack = false;
+        animator.SetTrigger("Death");
+    }
+
+    public void TakeDamageAnimation()
+    {
+        animator.SetTrigger("Hit");
+    }
 }

@@ -154,8 +154,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -1182588687
+  m_SortingLayer: 6
   m_SortingOrder: 0
   m_Sprite: {fileID: 311019205, guid: 2795c09b5a234f54185b56eb48d9e700, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -249,7 +249,7 @@ SpriteRenderer:
   m_SortingLayerID: -1039937319
   m_SortingLayer: 1
   m_SortingOrder: 0
-  m_Sprite: {fileID: -6650602, guid: 4bd8d2dcf105ab04da20f2af7603bce8, type: 3}
+  m_Sprite: {fileID: 1370390847, guid: b550b7721f29041499609f7f89c5f166, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -286,10 +286,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed8b1ae4e4e52b34ea557c1c11e076fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_CategoryHash: 9.365925e-16
-  m_labelHash: 8.6512946e-33
+  m_CategoryHash: 0.009161512
+  m_labelHash: 5.7048784e-36
   m_SpriteKey: 0
-  m_SpriteHash: 992148576
+  m_SpriteHash: 101142620
 --- !u!61 &4518662453873498506
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -325,8 +325,8 @@ BoxCollider2D:
   m_Offset: {x: -0.057996154, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.25}
-    oldSize: {x: 2, y: 2}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 1}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -368,6 +368,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6779debcbd5b1a1448da0789afc7bc4a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  canRun: 1
   HP: 5
   target: {fileID: 0}
   playerMask:
@@ -375,6 +376,8 @@ MonoBehaviour:
     m_Bits: 64
   chaseRadius: 3
   attackRadius: 0.7
+  DamageSize: 0.5
+  interactPos: {x: 0, y: 0, z: 0}
   homePos: {x: 0, y: 0, z: 0}
   moveSpeed: 1.5
 --- !u!50 &1905729470721911392
