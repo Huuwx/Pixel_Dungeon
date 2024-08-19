@@ -16,6 +16,7 @@ public class PlayerController : MonoBehaviour
 
     public Vector3 posOfHandUseWeapon;
     public LayerMask enemyLayer;
+    public LayerMask npcLayer;
 
     private Animator animator;
 
@@ -23,6 +24,7 @@ public class PlayerController : MonoBehaviour
     {
         canAttack = true;
         animator = GetComponent<Animator>();
+        PlayerMovement playerMov = gameObject.GetComponent<PlayerMovement>();
     }
     // Start is called before the first frame update
     void Start()
@@ -34,6 +36,17 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         Attack();
+        if (Input.GetKeyDown(KeyCode.Z))
+        {
+            PlayerMovement playerMov = gameObject.GetComponent<PlayerMovement>();
+            interactPos = transform.position + playerMov.facingDir * 0.75f;
+            Collider2D collider = Physics2D.OverlapCircle(interactPos, size, npcLayer);
+
+            if (collider != null) 
+            {
+                Debug.Log("Phat hien NPC");
+            }
+        }
     }
 
     void Attack()
