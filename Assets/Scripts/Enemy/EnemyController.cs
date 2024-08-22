@@ -29,6 +29,9 @@ public class EnemyController : MonoBehaviour
         rigid = GetComponent<Rigidbody2D>();
         target = GameObject.FindWithTag("Player").transform;
         homePos = transform.position;
+        chaseRadius = 3f;
+        attackRadius = 0.7f;
+        DamageSize = 0.5f;
     }
 
     // Update is called once per frame
