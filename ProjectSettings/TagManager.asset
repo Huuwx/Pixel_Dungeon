@@ -43,6 +43,18 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: WaterFoam
+    uniqueID: 1840950631
+    locked: 0
+  - name: Wall
+    uniqueID: 1569845023
+    locked: 0
+  - name: Ground
+    uniqueID: 4118564219
+    locked: 0
+  - name: NPC
+    uniqueID: 2967452721
+    locked: 0
   - name: Enemy
     uniqueID: 3255029977
     locked: 0
