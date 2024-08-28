@@ -6,6 +6,10 @@ TagManager:
   tags:
   - Enemy
   - NPC
+  - Water
+  - GroundUp
+  - Ground
+  - Wall
   layers:
   - Default
   - TransparentFX
