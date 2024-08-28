@@ -46,11 +46,17 @@ TagManager:
   - name: WaterFoam
     uniqueID: 1840950631
     locked: 0
+  - name: Ground
+    uniqueID: 4118564219
+    locked: 0
   - name: Wall
     uniqueID: 1569845023
     locked: 0
-  - name: Ground
-    uniqueID: 4118564219
+  - name: GroudUp
+    uniqueID: 3506870251
+    locked: 0
+  - name: Castle
+    uniqueID: 851991835
     locked: 0
   - name: NPC
     uniqueID: 2967452721
