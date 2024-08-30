@@ -11,6 +11,8 @@ public class PlayerController : MonoBehaviour
 
     public GameObject HandUseWeapon;
     public GameObject HandHoldWeapon;
+    public GameObject DialoguePanel;
+
     public bool canAttack = true;
     public float damage;
 
@@ -45,6 +47,7 @@ public class PlayerController : MonoBehaviour
             if (collider != null) 
             {
                 Debug.Log("Phat hien NPC");
+                
             }
         }
     }
