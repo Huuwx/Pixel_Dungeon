@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
+    [SerializeField] CheckPosToMove CheckPosToMove;
+
     public Vector3 facingDir = new Vector3(1, 0, 0);
 
     public Vector3 input = new Vector3();
@@ -12,6 +14,7 @@ public class PlayerMovement : MonoBehaviour
     public Vector2 targetPos;
 
     public float moveSpeed = 1f;
+    public float checkDistance;
 
     public bool isRunning = false;
     private bool canRun = true;
@@ -48,7 +51,24 @@ public class PlayerMovement : MonoBehaviour
                 }
 
                 targetPos.x = input.x;
-                targetPos.y = input.y;
+                targetPos.y = input.y; 
+                //if (input.y < 0)
+                //{
+                //    targetPos.y = input.y * 0.7f;
+                //    checkDistance = targetPos.y;
+                //}
+                //else
+                //{
+                //    targetPos.y = input.y * 1.5f;
+                //    if(input.y != 0)
+                //    {
+                //        checkDistance = input.y * 1.5f;
+                //    }
+                //    else
+                //    {
+                //        checkDistance = 0.7f;
+                //    }
+                //}
 
                 if (isWalkable(targetPos))
                 {
@@ -96,7 +116,7 @@ public class PlayerMovement : MonoBehaviour
         //}
         //return true;
 
-        if(Physics2D.Raycast(transform.position, targetPos.normalized * 0.7f, 0.7f, HiddenWall))
+        if (Physics2D.Raycast(transform.position - new Vector3(0, 0.3f, 0), targetPos * 0.7f, 0.7f, HiddenWall))
         {
             return false;
         }
@@ -105,6 +125,6 @@ public class PlayerMovement : MonoBehaviour
 
     private void OnDrawGizmosSelected()
     {
-        Gizmos.DrawRay(transform.position, targetPos.normalized * 0.7f);
+        Gizmos.DrawRay(transform.position - new Vector3(0, 0.3f, 0), targetPos * 0.7f);
     }
 }
