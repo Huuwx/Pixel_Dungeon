@@ -44,10 +44,25 @@ public class PlayerController : MonoBehaviour
             interactPos = transform.position + playerMov.facingDir * 0.75f;
             Collider2D collider = Physics2D.OverlapCircle(interactPos, size, npcLayer);
 
-            if (collider != null) 
+            if (collider != null)
             {
                 Debug.Log("Phat hien NPC");
-                
+                NPCController npc = collider.GetComponent<NPCController>();
+                //Debug.Log(npc.dialog.Lines[0]);
+                //Debug.Log(npc.dialog.Lines[3]);
+                //Dialogue.Instance.StartDialogue(npc.dialog);
+
+                if (npc.dialog != null)
+                {
+                    Debug.Log(npc.dialog.Lines[0]);
+                    Debug.Log(npc.dialog.Lines[3]);
+                    Dialogue.Instance.StartDialogue(npc.dialog);
+                }
+                else
+                {
+                    Debug.LogWarning("NPC dialog is null");
+                }
+
             }
         }
     }

@@ -182,7 +182,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 7293899484057002616, guid: 9f3c7ed1ef9504341bbccf8e422cb828, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1846783314}
   m_SourcePrefab: {fileID: 100100000, guid: 9f3c7ed1ef9504341bbccf8e422cb828, type: 3}
 --- !u!4 &11534989 stripped
 Transform:
@@ -1923,7 +1926,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &261418937
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1936,9 +1939,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a4dc65b615e0a6749bb249105d75d4a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  DialogueBox: {fileID: 1791596787}
   textComponent: {fileID: 93220635}
   lines: []
   textSpeed: 0.1
+  dialog:
+    lines:
+    - Xin chao
+    - Rat vui duoc gap ban
+    - Hi vong ban co thoi gian vui ve
 --- !u!4 &261418938
 Transform:
   m_ObjectHideFlags: 0
@@ -20638,7 +20647,6 @@ GameObject:
   - component: {fileID: 1791596788}
   - component: {fileID: 1791596790}
   - component: {fileID: 1791596789}
-  - component: {fileID: 1791596791}
   m_Layer: 5
   m_Name: DialogueBox
   m_TagString: Untagged
@@ -20704,23 +20712,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1791596787}
   m_CullTransparentMesh: 1
---- !u!114 &1791596791
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1791596787}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a4dc65b615e0a6749bb249105d75d4a9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  textComponent: {fileID: 93220635}
-  lines:
-  - Xin chao
-  - Rat vui khi duoc gap ban
-  textSpeed: 0.1
 --- !u!1001 &1793792196
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -21522,6 +21513,30 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 926920848660836288, guid: 493c934fba898474daf461dd760c1c6b, type: 3}
   m_PrefabInstance: {fileID: 1844445005}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1846783308 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7293899484057002616, guid: 9f3c7ed1ef9504341bbccf8e422cb828, type: 3}
+  m_PrefabInstance: {fileID: 11534988}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1846783314
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1846783308}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07f11de19ec7f0440b87192d3f50de81, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialog:
+    lines:
+    - Chao ban
+    - Ta la sieu nhan vang
+    - Hien tai xung quanh hon dao nhung ten quai vat dang hoanh hanh
+    - Bon ta rat can su tro giup
+    - Vay nen nguoi co the giup chung ta bao ve su yen binh cua hon dao duoc khong
 --- !u!1 &1859757895
 GameObject:
   m_ObjectHideFlags: 0

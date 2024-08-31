@@ -10,17 +10,29 @@ public class Dialogue : MonoBehaviour
 
     public static Dialogue Instance { get; private set; }
 
+    [SerializeField] GameObject DialogueBox;
+
     public TextMeshProUGUI textComponent;
     public string[] lines;
     public float textSpeed;
 
     private int index;
 
+    public DialogueManager dialog;
+
     // Start is called before the first frame update
     void Start()
     {
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
         textComponent.text = string.Empty;
-        StartDialogue();
+        StartDialogue(dialog);
     }
 
     // Update is called once per frame
@@ -33,27 +45,30 @@ public class Dialogue : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
-            if (textComponent.text == lines[index])
+            if (textComponent.text == dialog.Lines[index])
             {
                 NextLine();
             }
             else
             {
                 StopAllCoroutines();
-                textComponent.text = lines[index];
+                textComponent.text = dialog.Lines[index];
             }
         }
     }
 
-    void StartDialogue()
+    public void StartDialogue(DialogueManager dialogRef)
     {
+        dialog = dialogRef;
         index = 0;
-        StartCoroutine(TypeLine());
+        textComponent.text = string.Empty;
+        DialogueBox.SetActive(true);
+        StartCoroutine(TypeLine(dialog.Lines[index]));
     }
 
-    IEnumerator TypeLine()
+    IEnumerator TypeLine(string line)
     {
-        foreach (char c in lines[index].ToCharArray()) 
+        foreach (char c in line.ToCharArray()) 
         {
             textComponent.text += c;
             yield return new WaitForSeconds(textSpeed);
@@ -62,15 +77,15 @@ public class Dialogue : MonoBehaviour
 
     void NextLine()
     {
-        if(index < lines.Length - 1)
+        if(index < dialog.Lines.Count - 1)
         {
             index++;
             textComponent.text = string.Empty;
-            StartCoroutine (TypeLine());
+            StartCoroutine(TypeLine(dialog.Lines[index]));
         }
         else
         {
-            gameObject.SetActive(false);
+            DialogueBox.SetActive(false);
         }
     }
 }
