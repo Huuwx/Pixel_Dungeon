@@ -34,6 +34,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (canRun)
         {
+            PlayerController.Instance.SetPSWalk();
             input = InputManager.Instance.InputFromKeyBoard(input);
             if (input != Vector3.zero)
             {
@@ -79,6 +80,10 @@ public class PlayerMovement : MonoBehaviour
             }
             else
             {
+                if(PlayerController.Instance.playerState != PlayerState.dialogue)
+                {
+                    PlayerController.Instance.SetPSIdle();
+                }
                 isRunning = false;
                 animator.SetBool("IsRunning", isRunning);
             }

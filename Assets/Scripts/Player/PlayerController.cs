@@ -4,14 +4,25 @@ using UnityEngine;
 using UnityEngine.LowLevel;
 using UnityEngine.UIElements;
 
+public enum PlayerState
+{
+    idle,
+    walk, 
+    attack,
+    dialogue
+}
 public class PlayerController : MonoBehaviour
 {
+    public static PlayerController Instance { get; private set; }
+
     public float size;
     private Vector3 interactPos;
 
     public GameObject HandUseWeapon;
     public GameObject HandHoldWeapon;
     public GameObject DialoguePanel;
+
+    public PlayerState playerState;
 
     public bool canAttack = true;
     public float damage;
@@ -24,14 +35,23 @@ public class PlayerController : MonoBehaviour
 
     private void Awake()
     {
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+        playerState = PlayerState.idle;
         canAttack = true;
         animator = GetComponent<Animator>();
-        PlayerMovement playerMov = gameObject.GetComponent<PlayerMovement>();
+        //PlayerMovement playerMov = gameObject.GetComponent<PlayerMovement>();
     }
     // Start is called before the first frame update
     void Start()
     {
-       
+        
     }
 
     // Update is called once per frame
@@ -54,8 +74,7 @@ public class PlayerController : MonoBehaviour
 
                 if (npc.dialog != null)
                 {
-                    Debug.Log(npc.dialog.Lines[0]);
-                    Debug.Log(npc.dialog.Lines[3]);
+                    playerState = PlayerState.idle;
                     Dialogue.Instance.StartDialogue(npc.dialog);
                 }
                 else
@@ -71,6 +90,7 @@ public class PlayerController : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space) && canAttack)
         {
+            playerState = PlayerState.attack;
             canAttack = false;
             PlayerMovement playerMov = gameObject.GetComponent<PlayerMovement>();
 
@@ -169,5 +189,30 @@ public class PlayerController : MonoBehaviour
     public void TakeDamageAnimation()
     {
         animator.SetTrigger("Hit");
+    }
+
+    public void SetPSDialogue()
+    {
+        animator.SetBool("IsRunning", false);
+        PlayerMovement playerMov = gameObject.GetComponent<PlayerMovement>();
+        playerMov.setFalseCanRun();
+        canAttack = false;
+        playerState = PlayerState.dialogue;
+    }
+
+    public void SetPSWalk()
+    {
+        PlayerMovement playerMov = gameObject.GetComponent<PlayerMovement>();
+        playerMov.setTrueCanRun();
+        canAttack = true;
+        playerState = PlayerState.walk;
+    }
+
+    public void SetPSIdle()
+    {
+        PlayerMovement playerMov = gameObject.GetComponent<PlayerMovement>();
+        playerMov.setTrueCanRun();
+        canAttack = true;
+        playerState = PlayerState.idle;
     }
 }

@@ -21,7 +21,7 @@ public class Dialogue : MonoBehaviour
     public DialogueManager dialog;
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         if (Instance == null)
         {
@@ -32,6 +32,10 @@ public class Dialogue : MonoBehaviour
             Destroy(gameObject);
         }
         textComponent.text = string.Empty;
+    }
+
+    private void Start()
+    {
         StartDialogue(dialog);
     }
 
@@ -59,6 +63,7 @@ public class Dialogue : MonoBehaviour
 
     public void StartDialogue(DialogueManager dialogRef)
     {
+        PlayerController.Instance.SetPSDialogue();
         dialog = dialogRef;
         index = 0;
         textComponent.text = string.Empty;
@@ -86,6 +91,7 @@ public class Dialogue : MonoBehaviour
         else
         {
             DialogueBox.SetActive(false);
+            PlayerController.Instance.SetPSIdle();
         }
     }
 }
