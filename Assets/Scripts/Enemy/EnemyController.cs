@@ -8,20 +8,26 @@ public class EnemyController : MonoBehaviour
 {
     private Rigidbody2D rigid;
     private Animator animator;
+
     private bool isDead = false;
     public bool canRun = true;
+    bool isRun;
+    bool cooldown = true;
 
     public float HP = 5;
-    public Transform target;
-    public LayerMask playerMask;
     public float chaseRadius;
     public float attackRadius;
     public float DamageSize;
+    public float moveSpeed;
+    public float timeOfCoolDown = 1.4f;
+
+    public Transform target;
+
+    public LayerMask playerMask;
+
     public Vector3 interactPos;
     public Vector3 homePos;
-    public float moveSpeed;
-    bool isRun;
-
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -82,16 +88,6 @@ public class EnemyController : MonoBehaviour
                 }
             }
 
-            Collider2D attackRange = Physics2D.OverlapCircle(transform.position, attackRadius, playerMask);
-            if (attackRange != null)
-            {
-                //isRun = false;
-                //animator.SetBool("isRun", isRun);
-
-                canRun = false;
-                animator.SetTrigger("Attack");
-                return;
-            }
             if (canRun)
             {
                 isRun = true;
@@ -99,6 +95,26 @@ public class EnemyController : MonoBehaviour
                 Vector3 temp = Vector3.MoveTowards(transform.position, target.position, moveSpeed * Time.deltaTime);
                 rigid.MovePosition(temp);
             }
+
+            Collider2D attackRange = Physics2D.OverlapCircle(transform.position, attackRadius, playerMask);
+            if (attackRange != null)
+            {
+                //isRun = false;
+                //animator.SetBool("isRun", isRun);
+
+                canRun = false;
+                isRun = false;
+                animator.SetBool("isRun", isRun);
+
+                if (cooldown == true)
+                {
+                    animator.SetTrigger("Attack");
+                    cooldown = false;
+                    Invoke(nameof(SetTrueCoolDown), timeOfCoolDown);
+                }
+                return;
+            }
+            
         }
         else
         {
@@ -170,5 +186,10 @@ public class EnemyController : MonoBehaviour
             playerHealth.TakeDamage(1);
         }
 
+    }
+
+    public void SetTrueCoolDown()
+    {
+        cooldown = true;
     }
 }

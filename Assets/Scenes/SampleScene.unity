@@ -1978,7 +1978,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &289691013
 Transform:
   m_ObjectHideFlags: 0
@@ -8282,6 +8282,7 @@ MonoBehaviour:
   HandUseWeapon: {fileID: 978934913}
   HandHoldWeapon: {fileID: 1727566792}
   DialoguePanel: {fileID: 1791596787}
+  playerState: 0
   canAttack: 0
   damage: 0
   posOfHandUseWeapon: {x: -100, y: -100, z: 0}
