@@ -91,6 +91,7 @@ public class Dialogue : MonoBehaviour
         else
         {
             DialogueBox.SetActive(false);
+            PlayerController.Instance.setCanInteract();
             PlayerController.Instance.SetPSIdle();
         }
     }

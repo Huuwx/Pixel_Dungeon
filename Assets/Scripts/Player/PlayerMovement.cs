@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
+    public static PlayerMovement Instance { get; private set; }
+
     [SerializeField] CheckPosToMove CheckPosToMove;
 
     public Vector3 facingDir = new Vector3(1, 0, 0);
@@ -26,6 +28,14 @@ public class PlayerMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
         animator = GetComponent<Animator>();
     }
 

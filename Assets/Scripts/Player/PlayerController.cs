@@ -25,6 +25,7 @@ public class PlayerController : MonoBehaviour
     public PlayerState playerState;
 
     public bool canAttack = true;
+    private bool canInterract = true;
     public float damage;
 
     public Vector3 posOfHandUseWeapon;
@@ -58,7 +59,7 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         Attack();
-        if (Input.GetKeyDown(KeyCode.Z))
+        if (Input.GetKeyDown(KeyCode.Z) && canInterract)
         {
             PlayerMovement playerMov = gameObject.GetComponent<PlayerMovement>();
             interactPos = transform.position + playerMov.facingDir * 0.75f;
@@ -74,6 +75,7 @@ public class PlayerController : MonoBehaviour
 
                 if (npc.dialog != null)
                 {
+                    canInterract = false;
                     playerState = PlayerState.idle;
                     Dialogue.Instance.StartDialogue(npc.dialog);
                 }
@@ -176,6 +178,11 @@ public class PlayerController : MonoBehaviour
     private void SetCanAttack()
     {
         canAttack = true;
+    }
+
+    public void setCanInteract()
+    {
+        canInterract = true;
     }
 
     public void Dead()
