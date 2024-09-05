@@ -193,11 +193,11 @@ public class EnemyController : MonoBehaviour
         cooldown = true;
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.tag == "Wall")
-        {
-            canRun = false;
-        }
-    }
+    //private void OnCollisionEnter2D(Collision2D collision)
+    //{
+    //    if (collision.gameObject.tag == "Wall")
+    //    {
+    //        canRun = false;
+    //    }
+    //}
 }

@@ -1,23 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class ButtonController : MonoBehaviour
 {
     [SerializeField] GameObject PanelPause;
     [SerializeField] GameObject SettingBanner;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
     public void OpenSetting()
     {
@@ -33,5 +22,20 @@ public class ButtonController : MonoBehaviour
         SettingBanner.SetActive(false);
         PlayerMovement.Instance.setTrueCanRun();
         PlayerController.Instance.canAttack = true;
+    }
+
+    public void BackHome()
+    {
+        SceneManager.LoadScene("HomeScene");
+    }
+
+    public void StartGame()
+    {
+        SceneManager.LoadScene("SampleScene");
+    }
+
+    public void CloseGame()
+    {
+        Application.Quit();
     }
 }

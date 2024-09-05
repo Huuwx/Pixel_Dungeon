@@ -47,6 +47,9 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Background
+    uniqueID: 396443037
+    locked: 0
   - name: WaterFoam
     uniqueID: 1840950631
     locked: 0
