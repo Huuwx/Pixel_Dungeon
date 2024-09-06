@@ -147,7 +147,175 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: Rocks_03_0
+      rect:
+        serializedVersion: 2
+        x: 30
+        y: 39
+        width: 75
+        height: 56
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 02320b066ab1b0c4f913f5d06f36a878
+      internalID: 236557035
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rocks_03_1
+      rect:
+        serializedVersion: 2
+        x: 158
+        y: 39
+        width: 75
+        height: 56
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 71a579c0dee152c4a87aee32eb14b964
+      internalID: -471313526
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rocks_03_2
+      rect:
+        serializedVersion: 2
+        x: 286
+        y: 39
+        width: 75
+        height: 56
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 47953f3926636864289f29c9c2b4cd31
+      internalID: -1353381136
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rocks_03_3
+      rect:
+        serializedVersion: 2
+        x: 414
+        y: 38
+        width: 75
+        height: 56
+      alignment: 9
+      pivot: {x: 0.5011873, y: 0.51685375}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8cae4daa71094ea4bac87d9e3c0be75c
+      internalID: -284223749
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rocks_03_4
+      rect:
+        serializedVersion: 2
+        x: 541
+        y: 37
+        width: 75
+        height: 56
+      alignment: 9
+      pivot: {x: 0.51319826, y: 0.53535163}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 22faf24c8f1bf6743a30435a673c5ff5
+      internalID: 419278419
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rocks_03_5
+      rect:
+        serializedVersion: 2
+        x: 669
+        y: 38
+        width: 75
+        height: 56
+      alignment: 9
+      pivot: {x: 0.51437014, y: 0.5176758}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 20b5f03548fbb1c419ed0365871c3b5c
+      internalID: 1700469587
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rocks_03_7
+      rect:
+        serializedVersion: 2
+        x: 797
+        y: 39
+        width: 75
+        height: 56
+      alignment: 9
+      pivot: {x: 0.515, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4b9d70feb486724499ac64ab7ae1bb0a
+      internalID: 471084245
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rocks_03_8
+      rect:
+        serializedVersion: 2
+        x: 926
+        y: 40
+        width: 75
+        height: 56
+      alignment: 9
+      pivot: {x: 0.5, y: 0.482}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ba6ba9b474713684a97f86ecaa617f21
+      internalID: 1149814016
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -158,7 +326,18 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Rocks_03_0: 236557035
+      Rocks_03_1: -471313526
+      Rocks_03_10: 1544008615
+      Rocks_03_2: -1353381136
+      Rocks_03_3: -284223749
+      Rocks_03_4: 419278419
+      Rocks_03_5: 1700469587
+      Rocks_03_6: 769292837
+      Rocks_03_7: 471084245
+      Rocks_03_8: 1149814016
+      Rocks_03_9: -524275792
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

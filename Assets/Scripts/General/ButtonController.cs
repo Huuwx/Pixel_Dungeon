@@ -26,12 +26,12 @@ public class ButtonController : MonoBehaviour
 
     public void BackHome()
     {
-        SceneManager.LoadScene("HomeScene");
+        SceneController.Instance.LoadScene("HomeScene");
     }
 
     public void StartGame()
     {
-        SceneManager.LoadScene("SampleScene");
+        SceneController.Instance.LoadScene("SampleScene");
     }
 
     public void CloseGame()
