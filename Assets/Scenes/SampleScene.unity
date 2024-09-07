@@ -3207,7 +3207,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 66273343847278678, guid: 493c934fba898474daf461dd760c1c6b, type: 3}
       propertyPath: m_SortingLayer
-      value: 6
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 66273343847278678, guid: 493c934fba898474daf461dd760c1c6b, type: 3}
       propertyPath: m_SortingLayerID
@@ -9208,6 +9208,9 @@ MonoBehaviour:
   npcLayer:
     serializedVersion: 2
     m_Bits: 512
+  walkSound: {fileID: 8300000, guid: f8258eaa9398a3145b653478b6ae7db1, type: 3}
+  attackSound: {fileID: 8300000, guid: c62793e9a3ffb8945afd9ddccb348aa0, type: 3}
+  getDamageSound: {fileID: 8300000, guid: d723ccedfc9e7374b99e20f28a738204, type: 3}
 --- !u!114 &1343491318
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20188,6 +20191,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PanelPause: {fileID: 346813112}
   SettingBanner: {fileID: 513306788}
+  ClickSound: {fileID: 8300000, guid: cf07d6cd27ff9d94795c4dba2f93d3f5, type: 3}
 --- !u!1 &1554050014
 GameObject:
   m_ObjectHideFlags: 0
@@ -22687,7 +22691,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 66273343847278678, guid: 493c934fba898474daf461dd760c1c6b, type: 3}
       propertyPath: m_SortingLayer
-      value: 6
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 66273343847278678, guid: 493c934fba898474daf461dd760c1c6b, type: 3}
       propertyPath: m_SortingLayerID
@@ -24442,11 +24446,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4207719759798440915, guid: e5e4d3433e02b3943ba94c6fa8ae90b5, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -8.72
+      value: 5.7
       objectReference: {fileID: 0}
     - target: {fileID: 4207719759798440915, guid: e5e4d3433e02b3943ba94c6fa8ae90b5, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -8.82
+      value: -9.2
       objectReference: {fileID: 0}
     - target: {fileID: 4207719759798440915, guid: e5e4d3433e02b3943ba94c6fa8ae90b5, type: 3}
       propertyPath: m_LocalPosition.z
@@ -24499,7 +24503,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 66273343847278678, guid: 493c934fba898474daf461dd760c1c6b, type: 3}
       propertyPath: m_SortingLayer
-      value: 6
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 66273343847278678, guid: 493c934fba898474daf461dd760c1c6b, type: 3}
       propertyPath: m_SortingLayerID

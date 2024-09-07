@@ -27,7 +27,11 @@ public class EnemyController : MonoBehaviour
 
     public Vector3 interactPos;
     public Vector3 homePos;
-    
+
+    [SerializeField] AudioClip walkSound;
+    [SerializeField] AudioClip attackSound;
+    [SerializeField] AudioClip getDamageSound;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -193,11 +197,18 @@ public class EnemyController : MonoBehaviour
         cooldown = true;
     }
 
-    //private void OnCollisionEnter2D(Collision2D collision)
-    //{
-    //    if (collision.gameObject.tag == "Wall")
-    //    {
-    //        canRun = false;
-    //    }
-    //}
+    public void WalkSound()
+    {
+        SoundController.Instance.PlayOneShot(walkSound);
+    }
+
+    public void AttackSound()
+    {
+        SoundController.Instance.PlayOneShot(attackSound);
+    }
+
+    public void GetDamageSound()
+    {
+        SoundController.Instance.PlayOneShot(getDamageSound);
+    }
 }

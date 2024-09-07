@@ -34,6 +34,10 @@ public class PlayerController : MonoBehaviour
 
     private Animator animator;
 
+    [SerializeField] AudioClip walkSound;
+    [SerializeField] AudioClip attackSound;
+    [SerializeField] AudioClip getDamageSound;
+
     private void Awake()
     {
         if (Instance == null)
@@ -221,5 +225,20 @@ public class PlayerController : MonoBehaviour
         playerMov.setTrueCanRun();
         canAttack = true;
         playerState = PlayerState.idle;
+    }
+
+    public void WalkSound()
+    {
+        SoundController.Instance.PlayOneShot(walkSound);
+    }
+
+    public void AttackSound()
+    {
+        SoundController.Instance.PlayOneShot(attackSound);
+    }
+
+    public void GetDamageSound()
+    {
+        SoundController.Instance.PlayOneShot(getDamageSound);
     }
 }

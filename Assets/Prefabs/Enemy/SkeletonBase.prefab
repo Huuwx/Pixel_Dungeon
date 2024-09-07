@@ -155,7 +155,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1182588687
-  m_SortingLayer: 12
+  m_SortingLayer: 13
   m_SortingOrder: 0
   m_Sprite: {fileID: 311019205, guid: 2795c09b5a234f54185b56eb48d9e700, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -247,7 +247,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1039937319
-  m_SortingLayer: 7
+  m_SortingLayer: 8
   m_SortingOrder: 0
   m_Sprite: {fileID: 1370390847, guid: b550b7721f29041499609f7f89c5f166, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -322,7 +322,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.057996154, y: 0}
+  m_Offset: {x: -0.055701017, y: -0.09409428}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -333,7 +333,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.5676663, y: 1}
+  m_Size: {x: 0.5263572, y: 0.81181145}
   m_EdgeRadius: 0
 --- !u!95 &9063631820363970661
 Animator:
@@ -381,6 +381,9 @@ MonoBehaviour:
     m_Bits: 64
   interactPos: {x: 0, y: 0, z: 0}
   homePos: {x: 0, y: 0, z: 0}
+  walkSound: {fileID: 8300000, guid: f8258eaa9398a3145b653478b6ae7db1, type: 3}
+  attackSound: {fileID: 8300000, guid: a4b4cc5674711cf418f3afede20b2880, type: 3}
+  getDamageSound: {fileID: 8300000, guid: 9433530fa6d445a4e982c5c1aaae74be, type: 3}
 --- !u!50 &1905729470721911392
 Rigidbody2D:
   serializedVersion: 4

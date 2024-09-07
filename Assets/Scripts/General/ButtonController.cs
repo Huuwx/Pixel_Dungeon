@@ -8,8 +8,11 @@ public class ButtonController : MonoBehaviour
     [SerializeField] GameObject PanelPause;
     [SerializeField] GameObject SettingBanner;
 
+    [SerializeField] AudioClip ClickSound;
+
     public void OpenSetting()
     {
+        SoundController.Instance.PlayOneShot(ClickSound);
         PanelPause.SetActive(true);
         SettingBanner.SetActive(true);
         PlayerMovement.Instance.setFalseCanRun();
@@ -18,6 +21,7 @@ public class ButtonController : MonoBehaviour
 
     public void CloseSetting()
     {
+        SoundController.Instance.PlayOneShot(ClickSound);
         PanelPause.SetActive(false);
         SettingBanner.SetActive(false);
         PlayerMovement.Instance.setTrueCanRun();
@@ -26,16 +30,24 @@ public class ButtonController : MonoBehaviour
 
     public void BackHome()
     {
+        SoundController.Instance.PlayOneShot(ClickSound);
         SceneController.Instance.LoadScene("HomeScene");
     }
 
     public void StartGame()
     {
+        SoundController.Instance.PlayOneShot(ClickSound);
         SceneController.Instance.LoadScene("SampleScene");
+    }
+
+    public void OpenSettingInHome()
+    {
+        SoundController.Instance.PlayOneShot(ClickSound);
     }
 
     public void CloseGame()
     {
+        SoundController.Instance.PlayOneShot(ClickSound);
         Application.Quit();
     }
 }

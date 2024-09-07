@@ -517,6 +517,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PanelPause: {fileID: 0}
   SettingBanner: {fileID: 0}
+  ClickSound: {fileID: 8300000, guid: cf07d6cd27ff9d94795c4dba2f93d3f5, type: 3}
 --- !u!1 &113232144
 GameObject:
   m_ObjectHideFlags: 0
@@ -788,6 +789,7 @@ GameObject:
   m_Component:
   - component: {fileID: 135484869}
   - component: {fileID: 135484870}
+  - component: {fileID: 135484871}
   m_Layer: 0
   m_Name: SoundController
   m_TagString: Untagged
@@ -906,6 +908,18 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &135484871
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 135484868}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e786e508b9349f648835d116c3989a8e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &147370409
 GameObject:
   m_ObjectHideFlags: 0
@@ -3069,7 +3083,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1965391738}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 110934040}
+        m_TargetAssemblyTypeName: ButtonController, Assembly-CSharp
+        m_MethodName: OpenSettingInHome
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1965391738
 MonoBehaviour:
   m_ObjectHideFlags: 0
