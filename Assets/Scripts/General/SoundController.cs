@@ -8,7 +8,22 @@ public class SoundController : MonoBehaviour
 
     public static SoundController Instance { get => instance; }
 
-    private AudioSource audioSource;
+    [Header("---------- Audio Source ----------")]
+    [SerializeField] private AudioSource music;
+    [SerializeField] private AudioSource sfx;
+
+    [Header("---------- Audio Clip ----------")]
+    public AudioClip background;
+    public AudioClip playerWalk;
+    public AudioClip playerAttack;
+    public AudioClip playerGetDamaged;
+    public AudioClip orcWalk;
+    public AudioClip orcAttack;
+    public AudioClip orcGetDamaged;
+    public AudioClip skeletonWalk;
+    public AudioClip skeletonAttack;
+    public AudioClip skeletonGetDamaged;
+    public AudioClip Click;
 
     // Start is called before the first frame update
     void Awake()
@@ -21,11 +36,10 @@ public class SoundController : MonoBehaviour
         {
             Destroy(gameObject);
         }
-        audioSource = GetComponent<AudioSource>();
     }
 
     public void PlayOneShot(AudioClip clip)
     {
-        audioSource.PlayOneShot(clip);
+        sfx.PlayOneShot(clip);
     }
 }

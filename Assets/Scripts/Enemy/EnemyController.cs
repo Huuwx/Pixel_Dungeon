@@ -28,15 +28,18 @@ public class EnemyController : MonoBehaviour
     public Vector3 interactPos;
     public Vector3 homePos;
 
-    [SerializeField] AudioClip walkSound;
-    [SerializeField] AudioClip attackSound;
-    [SerializeField] AudioClip getDamageSound;
+    SoundController soundController;
+
+    private void Awake()
+    {
+        soundController = GameObject.FindGameObjectWithTag("Audio").GetComponent<SoundController>();
+        animator = GetComponent<Animator>();
+        rigid = GetComponent<Rigidbody2D>();
+    }
 
     // Start is called before the first frame update
     void Start()
     {
-        animator = GetComponent<Animator>();
-        rigid = GetComponent<Rigidbody2D>();
         target = GameObject.FindWithTag("Player").transform;
         homePos = transform.position;
         chaseRadius = 3f;
@@ -197,18 +200,33 @@ public class EnemyController : MonoBehaviour
         cooldown = true;
     }
 
-    public void WalkSound()
+    public void OrcWalkSound()
     {
-        SoundController.Instance.PlayOneShot(walkSound);
+        soundController.PlayOneShot(soundController.orcWalk);
     }
 
-    public void AttackSound()
+    public void OrcAttackSound()
     {
-        SoundController.Instance.PlayOneShot(attackSound);
+        soundController.PlayOneShot(soundController.orcAttack);
     }
 
-    public void GetDamageSound()
+    public void OrcGetDamageSound()
     {
-        SoundController.Instance.PlayOneShot(getDamageSound);
+        soundController.PlayOneShot(soundController.orcGetDamaged);
+    }
+
+    public void SkeletonWalkSound()
+    {
+        soundController.PlayOneShot(soundController.skeletonWalk);
+    }
+
+    public void SkeletonAttackSound()
+    {
+        soundController.PlayOneShot(soundController.skeletonAttack);
+    }
+
+    public void SkeletonGetDamageSound()
+    {
+        soundController.PlayOneShot(soundController.skeletonGetDamaged);
     }
 }

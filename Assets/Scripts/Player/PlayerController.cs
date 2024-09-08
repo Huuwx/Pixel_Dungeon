@@ -34,9 +34,7 @@ public class PlayerController : MonoBehaviour
 
     private Animator animator;
 
-    [SerializeField] AudioClip walkSound;
-    [SerializeField] AudioClip attackSound;
-    [SerializeField] AudioClip getDamageSound;
+    SoundController soundController;
 
     private void Awake()
     {
@@ -48,6 +46,7 @@ public class PlayerController : MonoBehaviour
         {
             Destroy(gameObject);
         }
+        soundController = GameObject.FindGameObjectWithTag("Audio").GetComponent<SoundController>();
         playerState = PlayerState.idle;
         canAttack = true;
         animator = GetComponent<Animator>();
@@ -229,16 +228,16 @@ public class PlayerController : MonoBehaviour
 
     public void WalkSound()
     {
-        SoundController.Instance.PlayOneShot(walkSound);
+        soundController.PlayOneShot(soundController.playerWalk);
     }
 
     public void AttackSound()
     {
-        SoundController.Instance.PlayOneShot(attackSound);
+        soundController.PlayOneShot(soundController.playerAttack);
     }
 
     public void GetDamageSound()
     {
-        SoundController.Instance.PlayOneShot(getDamageSound);
+        soundController.PlayOneShot(soundController.playerGetDamaged);
     }
 }

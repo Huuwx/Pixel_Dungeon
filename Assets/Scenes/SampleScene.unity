@@ -3618,7 +3618,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &504279511
 RectTransform:
   m_ObjectHideFlags: 0
@@ -8671,7 +8671,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -110}
+  m_AnchoredPosition: {x: 0, y: -39.000004}
   m_SizeDelta: {x: 300, y: 120}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1244171628
@@ -9208,9 +9208,6 @@ MonoBehaviour:
   npcLayer:
     serializedVersion: 2
     m_Bits: 512
-  walkSound: {fileID: 8300000, guid: f8258eaa9398a3145b653478b6ae7db1, type: 3}
-  attackSound: {fileID: 8300000, guid: c62793e9a3ffb8945afd9ddccb348aa0, type: 3}
-  getDamageSound: {fileID: 8300000, guid: d723ccedfc9e7374b99e20f28a738204, type: 3}
 --- !u!114 &1343491318
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19424,7 +19421,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 30}
+  m_AnchoredPosition: {x: 0, y: 101}
   m_SizeDelta: {x: 300, y: 120}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1395692519
@@ -20191,7 +20188,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PanelPause: {fileID: 346813112}
   SettingBanner: {fileID: 513306788}
-  ClickSound: {fileID: 8300000, guid: cf07d6cd27ff9d94795c4dba2f93d3f5, type: 3}
 --- !u!1 &1554050014
 GameObject:
   m_ObjectHideFlags: 0
