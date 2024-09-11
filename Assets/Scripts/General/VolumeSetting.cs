@@ -23,6 +23,12 @@ public class VolumeSetting : MonoBehaviour
 
             myMixer.SetFloat("Music", Mathf.Log10(1) * 20);
             myMixer.SetFloat("SFX", Mathf.Log10(1) * 20);
+
+            if (musicSlider != null && SFXSlider != null)
+            {
+                musicSlider.value = 1;
+                SFXSlider.value = 1;
+            }
         }
     }
 
