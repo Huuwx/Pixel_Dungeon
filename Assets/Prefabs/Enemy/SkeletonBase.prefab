@@ -186,7 +186,7 @@ GameObject:
   - component: {fileID: 1905729470721911392}
   m_Layer: 7
   m_Name: SkeletonBase
-  m_TagString: Enemy
+  m_TagString: Skeleton
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -381,9 +381,6 @@ MonoBehaviour:
     m_Bits: 64
   interactPos: {x: 0, y: 0, z: 0}
   homePos: {x: 0, y: 0, z: 0}
-  walkSound: {fileID: 8300000, guid: f8258eaa9398a3145b653478b6ae7db1, type: 3}
-  attackSound: {fileID: 8300000, guid: a4b4cc5674711cf418f3afede20b2880, type: 3}
-  getDamageSound: {fileID: 8300000, guid: 9433530fa6d445a4e982c5c1aaae74be, type: 3}
 --- !u!50 &1905729470721911392
 Rigidbody2D:
   serializedVersion: 4

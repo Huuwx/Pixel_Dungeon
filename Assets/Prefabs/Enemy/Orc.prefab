@@ -18,7 +18,7 @@ GameObject:
   - component: {fileID: 3137681238816724468}
   m_Layer: 7
   m_Name: Orc
-  m_TagString: Enemy
+  m_TagString: Orc
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -166,9 +166,6 @@ MonoBehaviour:
     m_Bits: 64
   interactPos: {x: 0, y: 0, z: 0}
   homePos: {x: 0, y: 0, z: 0}
-  walkSound: {fileID: 8300000, guid: 4f2f6a6b0ccfa154c954962aad7066e3, type: 3}
-  attackSound: {fileID: 8300000, guid: b6c6accb4552c3440a2ac26f4351d603, type: 3}
-  getDamageSound: {fileID: 8300000, guid: 9433530fa6d445a4e982c5c1aaae74be, type: 3}
 --- !u!50 &4117399639962829124
 Rigidbody2D:
   serializedVersion: 4

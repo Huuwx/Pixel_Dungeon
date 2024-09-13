@@ -11,6 +11,9 @@ TagManager:
   - Ground
   - Wall
   - Audio
+  - TaskProgress
+  - Skeleton
+  - Orc
   layers:
   - Default
   - TransparentFX

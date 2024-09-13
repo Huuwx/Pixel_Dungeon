@@ -81,6 +81,7 @@ public class PlayerController : MonoBehaviour
                     canInterract = false;
                     playerState = PlayerState.idle;
                     Dialogue.Instance.StartDialogue(npc.dialog);
+                    
                 }
                 else
                 {
@@ -120,7 +121,7 @@ public class PlayerController : MonoBehaviour
             
             foreach(Collider2D collider in collliders)
             {
-                if(collider.tag == "Enemy")
+                if(collider != null)
                 {
                     Debug.Log("Minus enemy's HP");
                     EnemyController enemy = collider.gameObject.GetComponent<EnemyController>();

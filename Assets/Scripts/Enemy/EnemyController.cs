@@ -168,6 +168,16 @@ public class EnemyController : MonoBehaviour
         }
         else if (HP <= 0)
         {
+            if (gameObject.tag == "Orc")
+            {
+                Debug.Log("CONG DIEM");
+                TaskManager.Instance.SetProgress_2();
+            }
+            else if (gameObject.tag == "Skeleton")
+            {
+                Debug.Log("CONG DIEM");
+                TaskManager.Instance.SetProgress_1();
+            }
             isDead = true;
             animator.SetTrigger("Death");
         }
