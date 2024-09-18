@@ -90,6 +90,16 @@ public class Dialogue : MonoBehaviour
         }
         else
         {
+            NPCController npcController = GameObject.FindGameObjectWithTag("NPC").GetComponent<NPCController>();
+            if (npcController != null)
+            {
+                if (npcController.appearTask)
+                {
+                    Debug.Log("task appear");
+                    npcController.Task.SetActive(true);
+                    npcController.appearTask = false;
+                }
+            }
             DialogueBox.SetActive(false);
             PlayerController.Instance.setCanInteract();
             PlayerController.Instance.SetPSIdle();

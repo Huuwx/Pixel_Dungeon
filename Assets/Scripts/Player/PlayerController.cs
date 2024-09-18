@@ -78,6 +78,7 @@ public class PlayerController : MonoBehaviour
 
                 if (npc.dialog != null)
                 {
+                    npc.appearTask = true;
                     canInterract = false;
                     playerState = PlayerState.idle;
                     Dialogue.Instance.StartDialogue(npc.dialog);

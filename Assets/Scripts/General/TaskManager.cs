@@ -34,8 +34,6 @@ public class TaskManager : MonoBehaviour
         {
             LoadProgress_1();
             LoadProgress_2();
-            PlayerPrefs.SetInt("Target_1", 5);
-            PlayerPrefs.SetInt("Target_2", 5);
         }
         else
         {
