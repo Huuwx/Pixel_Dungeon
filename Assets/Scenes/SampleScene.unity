@@ -1759,7 +1759,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &102703107
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1823,7 +1823,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 102703109}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1553508221}
+        m_TargetAssemblyTypeName: ButtonController, Assembly-CSharp
+        m_MethodName: CancelTask
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &102703109
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5662,7 +5674,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &753500582
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5726,7 +5738,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 753500584}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1553508221}
+        m_TargetAssemblyTypeName: ButtonController, Assembly-CSharp
+        m_MethodName: AcceptTask
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &753500584
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -24178,6 +24202,8 @@ MonoBehaviour:
     - Bon ta rat can su tro giup
     - Vay nen nguoi co the giup chung ta bao ve su yen binh cua hon dao duoc khong
   Task: {fileID: 2070638606}
+  AcceptBtn: {fileID: 753500581}
+  CancelBtn: {fileID: 102703106}
   appearTask: 0
 --- !u!1 &1859757895
 GameObject:

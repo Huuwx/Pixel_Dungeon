@@ -95,14 +95,27 @@ public class Dialogue : MonoBehaviour
             {
                 if (npcController.appearTask)
                 {
-                    Debug.Log("task appear");
-                    npcController.Task.SetActive(true);
-                    npcController.appearTask = false;
+                    npcController.AcceptBtn.SetActive(true);
+                    npcController.CancelBtn.SetActive(true);
                 }
-            }
-            DialogueBox.SetActive(false);
-            PlayerController.Instance.setCanInteract();
-            PlayerController.Instance.SetPSIdle();
+                else
+                {
+                    DialogueBox.SetActive(false);
+                    PlayerController.Instance.setCanInteract();
+                    PlayerController.Instance.SetPSIdle();
+                }
+            } 
         }
+    }
+
+    public void SetFalseDialogue()
+    {
+        NPCController npcController = GameObject.FindGameObjectWithTag("NPC").GetComponent<NPCController>();
+        npcController.AcceptBtn.SetActive(false);
+        npcController.CancelBtn.SetActive(false);
+        npcController.appearTask = false;
+        DialogueBox.SetActive(false);
+        PlayerController.Instance.setCanInteract();
+        PlayerController.Instance.SetPSIdle();
     }
 }

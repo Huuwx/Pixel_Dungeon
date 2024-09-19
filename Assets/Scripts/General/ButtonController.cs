@@ -56,4 +56,17 @@ public class ButtonController : MonoBehaviour
         soundController.PlayOneShot(soundController.Click);
         SceneController.Instance.LoadScene("MusicSettingScene");
     }
+
+    public void AcceptTask()
+    {
+        NPCController npcController = GameObject.FindGameObjectWithTag("NPC").GetComponent<NPCController>();
+        Debug.Log("task appear");
+        npcController.Task.SetActive(true);
+        Dialogue.Instance.SetFalseDialogue();
+    }
+
+    public void CancelTask()
+    {
+        Dialogue.Instance.SetFalseDialogue();
+    }
 }
