@@ -93,7 +93,7 @@ public class Dialogue : MonoBehaviour
             NPCController npcController = GameObject.FindGameObjectWithTag("NPC").GetComponent<NPCController>();
             if (npcController != null)
             {
-                if (npcController.appearTask)
+                if (npcController.appearTask && !PlayerPrefs.HasKey("Target_1") && !PlayerPrefs.HasKey("Target_2"))
                 {
                     npcController.AcceptBtn.SetActive(true);
                     npcController.CancelBtn.SetActive(true);

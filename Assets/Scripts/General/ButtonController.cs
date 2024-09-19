@@ -61,7 +61,14 @@ public class ButtonController : MonoBehaviour
     {
         NPCController npcController = GameObject.FindGameObjectWithTag("NPC").GetComponent<NPCController>();
         Debug.Log("task appear");
+        PlayerPrefs.SetInt("AcceptTask", 1);
+        PlayerPrefs.SetInt("Progress_1", 0);
+        PlayerPrefs.SetInt("Progress_2", 0);
+        PlayerPrefs.SetInt("Target_1", 5);
+        PlayerPrefs.SetInt("Target_2", 5);
         npcController.Task.SetActive(true);
+        TaskManager.Instance.LoadProgress_1();
+        TaskManager.Instance.LoadProgress_2();
         Dialogue.Instance.SetFalseDialogue();
     }
 

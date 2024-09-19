@@ -10227,7 +10227,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8eaae4d7cb96266478245ffdb29f74ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 5
+  maxHealth: 50
   currentHealth: 0
 --- !u!1 &1345639690
 GameObject:
@@ -24201,10 +24201,20 @@ MonoBehaviour:
     - Hien tai xung quanh hon dao nhung ten quai vat dang hoanh hanh
     - Bon ta rat can su tro giup
     - Vay nen nguoi co the giup chung ta bao ve su yen binh cua hon dao duoc khong
+  dialog2:
+    lines:
+    - Cau hay co gang len
+    - Chung ta sap day lui duoc bon quai vat do roi
+  dialog3:
+    lines:
+    - Cam on vi su dong gop cua cau trong nhiem vu lan nay
+    - Chung ta da thanh cong trong viec day lui bon yeu quai khoi hon dao cua chung
+      ta
   Task: {fileID: 2070638606}
   AcceptBtn: {fileID: 753500581}
   CancelBtn: {fileID: 102703106}
   appearTask: 0
+  acceptTask: 0
 --- !u!1 &1859757895
 GameObject:
   m_ObjectHideFlags: 0

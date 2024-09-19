@@ -81,7 +81,21 @@ public class PlayerController : MonoBehaviour
                     npc.appearTask = true;
                     canInterract = false;
                     playerState = PlayerState.idle;
-                    Dialogue.Instance.StartDialogue(npc.dialog);
+                    if(!PlayerPrefs.HasKey("Target_1") && !PlayerPrefs.HasKey("Target_2"))
+                    {
+                        Dialogue.Instance.StartDialogue(npc.dialog);
+                    }
+                    else
+                    {
+                        if(PlayerPrefs.GetInt("Progress_1") < PlayerPrefs.GetInt("Target_1") || PlayerPrefs.GetInt("Progress_2") < PlayerPrefs.GetInt("Target_2"))
+                        {
+                            Dialogue.Instance.StartDialogue(npc.dialog2);
+                        }
+                        else
+                        {
+                            Dialogue.Instance.StartDialogue(npc.dialog3);
+                        }
+                    }
                     
                 }
                 else

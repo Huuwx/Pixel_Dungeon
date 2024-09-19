@@ -30,19 +30,13 @@ public class TaskManager : MonoBehaviour
 
     void Start()
     {
+        //PlayerPrefs.DeleteKey("Target_1");
+        //PlayerPrefs.DeleteKey("Target_2");
+        //PlayerPrefs.DeleteKey("AcceptTask");
         if (PlayerPrefs.HasKey("Progress_1") && PlayerPrefs.HasKey("Progress_2"))
         {
             LoadProgress_1();
             LoadProgress_2();
-        }
-        else
-        {
-            PlayerPrefs.SetInt("Progress_1", 0);
-            PlayerPrefs.SetInt("Progress_2", 0);
-            PlayerPrefs.SetInt("Target_1", 5);
-            PlayerPrefs.SetInt("Target_2", 5);
-            currentCount_1.text = "0";
-            currentCount_2.text = "0";
         }
     }
 
