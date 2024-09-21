@@ -1,31 +1,39 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Health : MonoBehaviour
 {
+    public float maxHealth;
+    public float currentHealth;
+    [SerializeField] Image _healthBarFill;
 
-    public int maxHealth;
-    public int currentHealth;
 
-    // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         currentHealth = maxHealth;
     }
 
-    public void TakeDamage(int damage)
+    public void TakeDamage(float damage)
     {
-        PlayerController playerController = gameObject.GetComponent<PlayerController>();
         currentHealth -= damage;
+        currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
+        UpdateHealthBar();
         if (currentHealth > 0) 
         {
-            playerController.TakeDamageAnimation();
+            PlayerController.Instance.TakeDamageAnimation();
         }
         else
         {
             currentHealth = 0;
-            playerController.Dead();
+            PlayerController.Instance.Dead();
         }
+    }
+
+    private void UpdateHealthBar()
+    {
+        float targetFillAmount = currentHealth / maxHealth;
+        _healthBarFill.fillAmount = targetFillAmount;
     }
 }

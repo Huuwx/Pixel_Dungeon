@@ -139,8 +139,8 @@ public class PlayerController : MonoBehaviour
                 if(collider != null)
                 {
                     Debug.Log("Minus enemy's HP");
-                    EnemyController enemy = collider.gameObject.GetComponent<EnemyController>();
-                    enemy.TakeDamage(damage);
+                    EnemyHealthController enemyHealth = collider.GetComponent<EnemyHealthController>();
+                    enemyHealth.TakeDamage(damage);
                 }
             }
 

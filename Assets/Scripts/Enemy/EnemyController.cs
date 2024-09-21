@@ -14,7 +14,6 @@ public class EnemyController : MonoBehaviour
     bool isRun;
     bool cooldown = true;
 
-    public float HP = 5;
     public float chaseRadius;
     public float attackRadius;
     public float DamageSize;
@@ -61,11 +60,13 @@ public class EnemyController : MonoBehaviour
         {
             if (target.position.x > transform.position.x)
             {
-                transform.localScale = Vector3.one;
+                transform.rotation = Quaternion.Euler(0, 0, 0);
+                //transform.localScale = Vector3.one;
             }
             else
             {
-                transform.localScale = new Vector3(-1, 1, 1);
+                transform.rotation = Quaternion.Euler(0, 180, 0);
+                //transform.localScale = new Vector3(-1, 1, 1);
             }
 
             if (Mathf.Abs(target.position.y - transform.position.y) < 1)
@@ -129,11 +130,13 @@ public class EnemyController : MonoBehaviour
             {
                 if (homePos.x > transform.position.x)
                 {
-                    transform.localScale = Vector3.one;
+                    transform.rotation = Quaternion.Euler(0, 0, 0);
+                    //transform.localScale = Vector3.one;
                 }
                 else if (homePos.x < transform.position.x)
                 {
-                    transform.localScale = new Vector3(-1, 1, 1);
+                    transform.rotation = Quaternion.Euler(0, 180, 0);
+                    //transform.localScale = new Vector3(-1, 1, 1);
                 }
                 if (canRun)
                 {
@@ -159,34 +162,45 @@ public class EnemyController : MonoBehaviour
         Gizmos.DrawWireSphere(interactPos, DamageSize);
     }
 
-    public void TakeDamage(float damage)
+    //public void TakeDamage(float damage)
+    //{
+    //    HP -= damage;
+    //    if (HP > 0)
+    //    {
+    //        animator.SetTrigger("Hit");
+    //    }
+    //    else if (HP <= 0)
+    //    {
+    //        if (gameObject.tag == "Orc")
+    //        {
+    //            if(PlayerPrefs.GetInt("Progress_2") < PlayerPrefs.GetInt("Target_2"))
+    //            {
+    //                Debug.Log("CONG DIEM");
+    //                TaskManager.Instance.SetProgress_2();
+    //            }
+    //        }
+    //        else if (gameObject.tag == "Skeleton")
+    //        {
+    //            if(PlayerPrefs.GetInt("Progress_1") < PlayerPrefs.GetInt("Target_1"))
+    //            {
+    //                Debug.Log("CONG DIEM");
+    //                TaskManager.Instance.SetProgress_1();
+    //            }                
+    //        }
+    //        isDead = true;
+    //        animator.SetTrigger("Death");
+    //    }
+    //}
+
+    public void HitAnimation()
     {
-        HP -= damage;
-        if (HP > 0)
-        {
-            animator.SetTrigger("Hit");
-        }
-        else if (HP <= 0)
-        {
-            if (gameObject.tag == "Orc")
-            {
-                if(PlayerPrefs.GetInt("Progress_2") < PlayerPrefs.GetInt("Target_2"))
-                {
-                    Debug.Log("CONG DIEM");
-                    TaskManager.Instance.SetProgress_2();
-                }
-            }
-            else if (gameObject.tag == "Skeleton")
-            {
-                if(PlayerPrefs.GetInt("Progress_1") < PlayerPrefs.GetInt("Target_1"))
-                {
-                    Debug.Log("CONG DIEM");
-                    TaskManager.Instance.SetProgress_1();
-                }                
-            }
-            isDead = true;
-            animator.SetTrigger("Death");
-        }
+        animator.SetTrigger("Hit");
+    }
+
+    public void Dead()
+    {
+        isDead = true;
+        animator.SetTrigger("Death");
     }
 
     public void setTrueCanRun()
@@ -205,8 +219,8 @@ public class EnemyController : MonoBehaviour
         if (player != null)
         {
             Debug.Log("chet me may chua");
-            Health playerHealth = player.gameObject.GetComponent<Health>();
-            playerHealth.TakeDamage(1);
+            Health playerHealth = player.GetComponent<Health>();
+            playerHealth.TakeDamage(1f);
         }
 
     }

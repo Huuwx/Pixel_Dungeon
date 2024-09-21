@@ -47,7 +47,7 @@ public class Dialogue : MonoBehaviour
 
     public void TypeDialogue()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) || Input.anyKeyDown)
         {
             if (textComponent.text == dialog.Lines[index])
             {
