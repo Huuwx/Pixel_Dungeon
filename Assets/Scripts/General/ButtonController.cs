@@ -7,6 +7,7 @@ public class ButtonController : MonoBehaviour
 {
     [SerializeField] GameObject PanelPause;
     [SerializeField] GameObject SettingBanner;
+    [SerializeField] GameObject reviveBtn;
 
     SoundController soundController;
 
@@ -55,6 +56,21 @@ public class ButtonController : MonoBehaviour
     {
         soundController.PlayOneShot(soundController.Click);
         SceneController.Instance.LoadScene("MusicSettingScene");
+    }
+
+    public void ReviveBtn()
+    {
+        string SceneName = SceneManager.GetActiveScene().name;
+        soundController.PlayOneShot(soundController.Click);
+        PanelPause.SetActive(false);
+        reviveBtn.SetActive(false);
+        SceneController.Instance.LoadScene(SceneName);
+    }
+
+    public void DeadPanel()
+    {
+        PanelPause.SetActive(true);
+        reviveBtn.SetActive(true);
     }
 
     public void AcceptTask()

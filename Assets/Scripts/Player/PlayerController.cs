@@ -212,6 +212,12 @@ public class PlayerController : MonoBehaviour
         animator.SetTrigger("Death");
     }
 
+    public void DeadPanelOn()
+    {
+        ButtonController buttonController = GameObject.FindGameObjectWithTag("GameController").GetComponent<ButtonController>();
+        buttonController.DeadPanel();
+    }
+
     public void TakeDamageAnimation()
     {
         animator.SetTrigger("Hit");
