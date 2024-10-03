@@ -5,8 +5,8 @@ using UnityEngine.UI;
 
 public class EnemyHealthController : MonoBehaviour
 {
-    public float maxHealth;
-    public float currentHealth;
+    [SerializeField] float maxHealth;
+    [SerializeField] float currentHealth;
     [SerializeField] Image _healthBarFill;
     [SerializeField] EnemyController _enemyController;
     [SerializeField] private Transform _healthBarTransform;
@@ -58,5 +58,11 @@ public class EnemyHealthController : MonoBehaviour
     {
         float targetFillAmount = currentHealth / maxHealth;
         _healthBarFill.fillAmount = targetFillAmount;
+    }
+
+    public void ResetHealth()
+    {
+        currentHealth = maxHealth;
+        UpdateHealthBar();
     }
 }

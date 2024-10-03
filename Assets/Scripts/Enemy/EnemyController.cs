@@ -203,6 +203,16 @@ public class EnemyController : MonoBehaviour
         animator.SetTrigger("Death");
     }
 
+    public void SetFalseIsDead()
+    {
+        isDead = false;
+    }
+
+    public void DestroyEnemy()
+    {
+        gameObject.SetActive(false);
+    }
+
     public void setTrueCanRun()
     {
         canRun = true;
