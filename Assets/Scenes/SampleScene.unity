@@ -27005,6 +27005,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SkeletonBase
       objectReference: {fileID: 0}
+    - target: {fileID: 6697442373313809813, guid: 493c934fba898474daf461dd760c1c6b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
